@@ -28,6 +28,13 @@ app.get("/", (req, res) => {
 const productsRouter = require("./routes/products");
 app.use("/api/products", productsRouter);
 
+const authMiddleware = require("../middleware/auth");
+
+router.post("/", authMiddleware, async (req, res) => {
+  // Only logged-in users can create a product (or admins, etc.)
+});
+
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

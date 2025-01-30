@@ -34,6 +34,9 @@ router.post("/", authMiddleware, async (req, res) => {
   // Only logged-in users can create a product (or admins, etc.)
 });
 
+const ordersRouter = require("./routes/orders");
+app.use("/api/orders", ordersRouter);
+
 
 
 const port = process.env.PORT || 5000;
